@@ -6,6 +6,7 @@ import com.learning.blog.model.dtos.RegisterRequest;
 import com.learning.blog.service.AuthenticationService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,7 +25,7 @@ public class AuthController {
 
         AuthResponse authResponse = authenticationService.register(registerRequest);
 
-        return ResponseEntity.ok(authResponse);
+        return new ResponseEntity<>(authResponse, HttpStatus.CREATED);
     }
 
     @PostMapping("/login")

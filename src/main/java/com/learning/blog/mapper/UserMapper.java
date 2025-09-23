@@ -13,6 +13,7 @@ public interface UserMapper {
     @Mapping(target = "createdAt", ignore = true)
     @Mapping(target = "posts", ignore = true)
     User toEntity(RegisterRequest registerRequest);
+    User toEntity(UserRequest userRequest);
     UserResponse toResponse(User user);
 
     User updateEntity(UserRequest userRequest);

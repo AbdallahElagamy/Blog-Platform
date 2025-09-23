@@ -3,6 +3,7 @@ package com.learning.blog.service.impl;
 import com.learning.blog.model.Category;
 import com.learning.blog.repository.CategoryRepository;
 import com.learning.blog.service.CategoryService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    @Transactional
     public Category createCategory(Category category) {
         String name = category.getName();
         if(categoryRepository.existsByNameIgnoreCase(name)) {
@@ -31,6 +33,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    @Transactional
     public void deleteCategory(UUID id) {
         Optional<Category> categoryOpt = categoryRepository.findById(id);
         if(categoryOpt.isPresent()) {

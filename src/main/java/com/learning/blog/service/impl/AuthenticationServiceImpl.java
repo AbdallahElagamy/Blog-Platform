@@ -7,6 +7,7 @@ import com.learning.blog.model.dtos.LoginRequest;
 import com.learning.blog.model.dtos.RegisterRequest;
 import com.learning.blog.repository.UserRepository;
 import com.learning.blog.service.AuthenticationService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -30,6 +31,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final JwtService jwtService;
 
     @Override
+    @Transactional
     public AuthResponse register(RegisterRequest registerRequest) {
         try {
             if (userRepository.existsByEmail(registerRequest.getEmail())) {

@@ -15,6 +15,5 @@ public interface UserService {
     UserResponse updateUserRole(UUID id, String role);
     void deleteUser(UUID id);
     void deleteUserByEmail(String email);
-    boolean existsByEmail(String email);
     long getUsersCount();
 }

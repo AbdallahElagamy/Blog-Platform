@@ -4,7 +4,7 @@ spring:
     url: jdbc:h2:mem:testdb
     driver-class-name: org.h2.Driver
     username: sa
-    password:
+    password: password
 
   jpa:
     hibernate:
@@ -13,7 +13,6 @@ spring:
     properties:
       hibernate:
         format_sql: true
-        dialect: org.hibernate.dialect.H2Dialect
 
   h2:
     console:
