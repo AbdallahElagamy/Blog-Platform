@@ -41,6 +41,10 @@ public class User {
     @Column(nullable = false)
     private LocalDateTime createdAt;
 
+    private boolean isEnabled;
+    private String verificationCode;
+    private LocalDateTime expirationTime;
+
     @PrePersist
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();

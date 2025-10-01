@@ -15,6 +15,16 @@ spring:
       hibernate:
         format_sql: true
         dialect: org.hibernate.dialect.PostgreSQLDialect
+  mail:
+    host: sandbox.smtp.mailtrap.io
+    port: 587
+    username: 4b1aeb4c1876c0
+    password: 76b5ae1ae3de5b
+    properties:
+        mail:
+            smtp:
+                auth: true
+                starttls.enable: true
 jwt:
     secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
     expiration: 3600000
